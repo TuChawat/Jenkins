@@ -1,7 +1,5 @@
 package com.bridgelabz.selenum.base;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,8 +13,6 @@ import java.net.URLConnection;
 
 public class Base {
     public static WebDriver driver;
-    public static ExtentTest test;
-    public static ExtentReports report;
 
     @BeforeTest
     public static void setup() {
@@ -34,14 +30,5 @@ public class Base {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin");
-        report = new ExtentReports("C:\\Users\\Admin\\LinkedIn\\Extent_Report.html");
-        test = report.startTest("Extent_Report");
-    }
-
-    @AfterMethod
-    public static void endTest()
-    {
-        report.endTest(test);
-        report.flush();
     }
 }
