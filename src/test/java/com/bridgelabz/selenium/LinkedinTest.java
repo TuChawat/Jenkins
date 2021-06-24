@@ -14,5 +14,11 @@ public class LinkedinTest extends Base {
         login.loggedin();
         System.out.println(driver.getTitle());
         Assert.assertEquals(driver.getTitle(), "Feed | LinkedIn");
+        String Name = driver.getTitle();
+        if (Name.equals("My Zoopla")){
+            test.log(LogStatus.PASS, "Navigated to My account");
+        }else {
+            test.log(LogStatus.FAIL, "Test Failed");
+        }
     }
 }
